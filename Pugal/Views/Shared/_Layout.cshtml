@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html ng-app="inspinia">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title set in pageTitle directive -->
+    <title page-title></title>
+    <base href="/">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body ng-controller="MainCtrl as main">
+    
+    <div >
+        @RenderBody()
+       
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script src="~/js/plugins/ckeditor/ckeditor.js"></script>
+
+    @Scripts.Render("~/bundles/angular")
+    @*@Scripts.Render("~/bundles/angularapp")*@
+
+    @*<script src="~/js/angular/angular.js"></script>
+    <script src="~/js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="~/js/angular-translate/angular-translate.min.js"></script>
+    <script src="~/js/plugins/ngSpinner/angular-loading-spinner.js"></script>
+    <script src="~/js/plugins/ngSpinner/spin.min.js"></script>
+    <script src="~/js/plugins/ngSpinner/angular-spinner.js"></script>
+    <script src="~/js/ui-router/angular-ui-router.min.js"></script>
+    <script src="~/js/bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
+    <script src="~/js/plugins/angular-idle/angular-idle.js"></script>
+    <script src="~/js/plugins/ckeditor/ng-ckeditor.js"></script>*@    
+    <script src="~/js/app.js"></script>
+    <script src="~/js/config.js"></script>
+    <script src="~/js/translations.js"></script>
+    <script src="~/js/common.services.js"></script>
+    <script src="~/js/controllers.js"></script>
+    <script src="~/js/directives.js"></script>
+    <script src="~/js/repository.js"></script>
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

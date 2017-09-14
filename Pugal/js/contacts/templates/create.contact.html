@@ -1,0 +1,378 @@
+﻿<div ng-controller="contactCtrl as vm" ng-init="vm.edit();">
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>{{ 'CREATECONTACT' | translate }}</h5>
+                <div settings="vm.createIconSetting" listclick="vm.listClick()" balanceclick="vm.balanceClick(vm.Contact.ContactId);" paidclick="vm.paidClick(vm.Contact.ContactId);"
+                     printclick="vm.printClick('edit');" class="heading-icon" ibox-tools></div>
+            </div>
+            <div class="ibox-content filter-content">
+                <div>
+                    <div customfilter filtermodel="vm.filterModel" clearfilter="vm.clearFilter();" getfilterobject="vm.getfilterObject();"></div>
+                </div>
+            </div>
+        </div>
+        <form name="myForm">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>{{ 'TITLE' | translate }}</label>
+                                        <select ng-model="vm.Contact.Title" class="form-control" ng-disabled="vm.isView" required ng-change="vm.titleChange()">
+                                            <option selected="selected" value="Mr">Mr</option>
+                                            <option value="Mrs">Mrs</option>
+                                            <option value="Miss">Miss</option>
+                                            <option value="Rev.Fr">Rev.Fr</option>
+                                            <!--<option value="Company">Company</option>-->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing" ng-class="{'has-error': myForm.firstName.$invalid && !myForm.firstName.$pristine}">
+                                        <label>{{ 'FNAME' | translate }}<span class="require"> *</span></label>
+                                        <input ng-disabled="vm.isView" name="firstName" type="text" required class="form-control" placeholder="Enter first name / Company Name" ng-model="vm.Contact.FirstName" id="FirstName" maxlength="70" ng-pattern="/[a-zA-Z]+/" />
+                                        <i class="require" ng-show="myForm.firstName.$invalid && !myForm.firstName.$pristine">Please enter valid input</i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing" >
+                                        <label>{{ 'LNAME' | translate }}</label>
+                                        <input ng-disabled="vm.isView" type="text" name="lastName" class="form-control"  placeholder="Enter last name / Proprietor / Contact Name" ng-model="vm.Contact.LastName" id="LasttName" maxlength="70" ng-pattern="/[a-zA-Z]+/" />
+                                        <!--<i class="require" ng-show="myForm.lastName.$invalid && !myForm.lastName.$pristine">Please enter valid input</i>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>{{ 'GENDER' | translate }}: </label><br />
+                                        <input type="radio" icheck name="gender" ng-change="vm.genderChange()" ng-model="vm.Contact.Gender" value="Male" /><label>{{ 'MALE' | translate }}</label>
+                                        <input type="radio" icheck name="gender" ng-change="vm.genderChange()" ng-model="vm.Contact.Gender" value="Female" /><label>{{ 'FEMALE' | translate }}</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>{{ 'QUALIFICATION' | translate }}</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter qualification" ng-model="vm.Contact.Qualification" id="Qualification" maxlength="100" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing" >
+                                        <label>{{ 'OCCUPATION' | translate }}</label><input ng-disabled="vm.isView" name="phone" class="form-control" type="text" placeholder="Enter occupation" ng-model="vm.Contact.Occupation" id="Occupation" maxlength="100" />
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing" ng-class="{'has-error': myForm.phone.$invalid && !myForm.phone.$pristine}">
+                                        <label>{{ 'PHONE' | translate }}</label><input ng-disabled="vm.isView" name="phone" class="form-control" type="text"  placeholder="Enter phone number" ng-model="vm.Contact.PhoneNumber" id="PhoneNumber" maxlength="11" ng-pattern="/[0-9]+/" />
+                                        <i class="require" ng-show="myForm.phone.$invalid && !myForm.phone.$pristine">Please enter valid phone number</i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing" ng-class="{'has-error': myForm.mobile.$invalid && !myForm.mobile.$pristine}">
+                                        <label>{{ 'MOBILE' | translate }}</label><input ng-disabled="vm.isView" name="mobile" class="form-control" type="text" placeholder="Enter mobile number" ng-model="vm.Contact.MobileNumber" id="MobileNumber" maxlength="11" ng-pattern="/[0-9]+/" />
+                                        <i class="require" ng-show="myForm.mobile.$invalid && !myForm.mobile.$pristine">Please enter valid mobile number</i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing" ng-class="{'has-error': myForm.email.$invalid && !myForm.email.$pristine}">
+                                        <label>{{ 'EMAIL' | translate }}</label><input name="email" ng-disabled="vm.isView" class="form-control" type="email" placeholder="Enter email" ng-model="vm.Contact.Email" id="Email" maxlength="100" />
+                                        <i class="require" ng-show="myForm.email.$invalid && !myForm.email.$pristine">Please enter valid email</i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>{{ 'SPOUSE' | translate }}</label>
+                                        <input type="text" autocomplete="off" ng-disabled="vm.isView" class="form-control" ng-model="vm.spouseDetail" placeholder="Enter spouse name" typeahead="female as female.Name for female in vm.getSpouse($viewValue) | filter:$viewValue" class="form-control" maxlength="100">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>{{ 'DOB' | translate }}</label>
+                                        <input type="text" ng-disabled="vm.isView" class="form-control" restrict-input datepicker-popup="{{vm.dtFormat}}" is-open="vm.dobOpen" ng-click="vm.openDob($event)"
+                                               ng-mousedown="vm.openDob($event)" ng-keydown="vm.openDob($event)" show-weeks="false" show-button-bar="true"
+                                               max-date="{{vm.maxDate}}" placeholder="Enter date of birth" ng-model="vm.Contact.DOB" />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>{{ 'DOL' | translate }}</label>
+                                        <input ng-disabled="vm.isView" type="text" class="form-control" placeholder="Enter date of leave" ng-model="vm.Contact.DOL" restrict-input datepicker-popup="{{vm.dtFormat}}" is-open="vm.dolOpen" ng-click="vm.openDol($event)"
+                                               ng-mousedown="vm.openDol($event)" ng-keydown="vm.openDol($event)" show-weeks="false" show-button-bar="true"
+                                               max-date="vm.maxDate" min-date="vm.Contact.DOB" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>{{ 'INCOME' | translate }}</label><input ng-disabled="vm.isView" class="form-control" ng-blur="vm.openDialog();" type="number" min="0" placeholder="Enter annual Income" ng-model="vm.Contact.YearIncome" id="YearIncome" maxlength="10" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>{{ 'ISMEMBER' | translate }}</label><br />
+                                        <input type="radio" icheck name="member" ng-model="vm.Contact.IsMember" value="true" /><label>{{ 'YES' | translate }}</label>
+                                        <input type="radio" icheck name="member" ng-model="vm.Contact.IsMember" value="false" /><label>{{ 'NO' | translate }}</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>{{ 'GROUP' | translate }}</label>
+                                        <input type="text" autocomplete="off" ng-disabled="vm.isView" ng-model="vm.MailGroup" class="form-control" placeholder="Enter group name" typeahead="group as group.GroupName for group in vm.getGroups($viewValue) | filter:$viewValue" maxlength="150" ng-pattern="/[a-zA-Z]+/">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>{{ 'ISTAX' | translate }}</label><br />
+                                        <input type="radio" icheck name="eligible" ng-model="vm.Contact.IsEligibleForTax" value="true" /><label>{{ 'YES' | translate }}</label>
+                                        <input type="radio" icheck name="eligible" ng-model="vm.Contact.IsEligibleForTax" value="false" /><label>{{ 'NO' | translate }}</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>Tax eligible date</label>
+                                        <input type="text" ng-disabled="vm.isView" class="form-control" restrict-input datepicker-popup="{{vm.dtFormat}}" is-open="vm.tedOpen" ng-click="vm.openTed($event)"
+                                               ng-mousedown="vm.openTed($event)" ng-keydown="vm.openTed($event)" show-weeks="false" show-button-bar="true"
+                                               max-date="vm.maxDate" min-date="vm.Contact.DOB" placeholder="Enter tax eligible date" ng-model="vm.Contact.TaxEligibleDate" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group control-spacing">
+                                        <label>Old Tax pending amount</label>
+                                        <input type="number" ng-disabled="vm.isView" ng-model="vm.Contact.PreviousBalance"  min="0" class="form-control" placeholder="Old tax pending amount"  maxlength="10" >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">{{ 'FAMILY' | translate }}:</div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'FATHER' | translate }}</label><input type="text" autocomplete="off" class="form-control" ng-disabled="vm.isView" ng-model="vm.fatherDetail" placeholder="Enter father name" typeahead="male as male.Name for male in vm.getMales($viewValue) | filter:$viewValue" maxlength="100">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'MOTHER' | translate }}</label>
+                                            <input type="text" ng-disabled="vm.isView" class="form-control" autocomplete="off" ng-model="vm.motherDetail" placeholder="Enter mother name" typeahead="female as female.Name for female in vm.getFemales($viewValue) | filter:$viewValue" maxlength="100">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'GUARDIAN' | translate }}</label>
+                                            <input type="text" autocomplete="off" ng-disabled="vm.isView" class="form-control" ng-model="vm.guardianDetail" placeholder="Enter guardian name" typeahead="all as all.Name for all in vm.getAll($viewValue) | filter:$viewValue" maxlength="100">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>Family Card Number</label>
+                                            <input type="text" ng-disabled="vm.isView" class="form-control" ng-model="vm.Contact.FamilyCardNumber" placeholder="Enter family card number" maxlength="10">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">{{ 'PADDRESS' | translate }}:</div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'ADD' | translate }}1</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter address1 (Ex. number, street)" ng-model="vm.Contact.Address1" id="Address1" maxlength="70" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'ADD' | translate }}2</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter address2 (Ex. Apt no)" ng-model="vm.Contact.Address2" id="Address2" maxlength="70" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'CITY' | translate }}</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter city" ng-model="vm.Contact.City" id="City" maxlength="70" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'STATE' | translate }}</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter state" ng-model="vm.Contact.State" id="State" maxlength="50" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'COUNTRY' | translate }}</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter country" ng-model="vm.Contact.Country" id="Country" maxlength="70" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'PIN' | translate }}</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter pin/zip code" ng-model="vm.Contact.PinCode" id="PinCode" maxlength="6" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">{{ 'COMADD' | translate }}:</div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'ADD' | translate }}1</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter address1 (Ex. number, street)" ng-model="vm.Contact.ComAddress1" id="ComAddress1" maxlength="70" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'ADD' | translate }}2</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter address2 (Ex. Apt no)" ng-model="vm.Contact.ComAddress2" id="ComAddress2" maxlength="70" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'CITY' | translate }}</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter city" ng-model="vm.Contact.ComCity" id="ComCity" maxlength="70" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'STATE' | translate }}</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter state" ng-model="vm.Contact.ComState" id="ComState" maxlength="50" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'COUNTRY' | translate }}</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter country" ng-model="vm.Contact.ComCountry" id="ComCountry" maxlength="70" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'PIN' | translate }}</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter pin/zip code" ng-model="vm.Contact.ComPinCode" id="ComPinCode" maxlength="6" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">{{ 'HOLY' | translate }}</div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'BAPTISM' | translate }}</label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter date of baptism" ng-model="vm.Contact.BaptismDate"
+                                               restrict-input datepicker-popup="{{vm.dtFormat}}" is-open="vm.bapOpen" ng-click="vm.openBap($event)"
+                                               ng-mousedown="vm.openBap($event)" ng-keydown="vm.openBap($event)" show-weeks="false" show-button-bar="true"
+                                               max-date="vm.maxDate" min-date="vm.Contact.DOB" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'EUCHARIST' | translate }} </label><input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter date of eucharist" ng-model="vm.Contact.Eucharist"
+                                               restrict-input datepicker-popup="{{vm.dtFormat}}" is-open="vm.dolEuch" ng-click="vm.openEuch($event)"
+                                               ng-mousedown="vm.openEuch($event)" ng-keydown="vm.openEuch($event)" show-weeks="false" show-button-bar="true"
+                                               max-date="vm.maxDate" min-date="vm.Contact.DOB" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'RECON' | translate }}</label>
+                                            <input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter date of reconciliation" ng-model="vm.Contact.Reconciliation"
+                                                   restrict-input datepicker-popup="{{vm.dtFormat}}" is-open="vm.reconOpen" ng-click="vm.openRecon($event)"
+                                                   ng-mousedown="vm.openRecon($event)" ng-keydown="vm.openRecon($event)" show-weeks="false" show-button-bar="false"
+                                                   max-date="vm.maxDate" min-date="vm.Contact.DOB" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'CONFIRM' | translate }}</label>
+                                            <input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter date of confirmation" ng-model="vm.Contact.Confirmation"
+                                                   restrict-input datepicker-popup="{{vm.dtFormat}}" is-open="vm.conOpen" ng-click="vm.openCon($event)"
+                                                   ng-mousedown="vm.openCon($event)" ng-keydown="vm.openCon($event)" show-weeks="false" show-button-bar="true"
+                                                   max-date="vm.maxDate" min-date="vm.Contact.DOB" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'MARRIAGE' | translate }}</label>
+                                            <input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter date of marriage" ng-model="vm.Contact.Marriage"
+                                                   restrict-input datepicker-popup="{{vm.dtFormat}}" is-open="vm.marOpen" ng-click="vm.openMar($event)"
+                                                   ng-mousedown="vm.openMar($event)" ng-keydown="vm.openMar($event)" show-weeks="false" show-button-bar="false"
+                                                   max-date="vm.maxDate" min-date="vm.Contact.DOB" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'HOLY' | translate }}</label>
+                                            <input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter date of holy orders" ng-model="vm.Contact.HolyOrders"
+                                                   restrict-input datepicker-popup="{{vm.dtFormat}}" is-open="vm.holOpen" ng-click="vm.openHol($event)"
+                                                   ng-mousedown="vm.openHol($event)" ng-keydown="vm.openHol($event)" show-weeks="false" show-button-bar="true"
+                                                   max-date="vm.maxDate" min-date="vm.Contact.DOB" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'ANOINT' | translate }}</label>
+                                            <input ng-disabled="vm.isView" class="form-control" type="text" placeholder="Enter date of anointing of the sick" ng-model="vm.Contact.AnointingoftheSick"
+                                                   restrict-input datepicker-popup="{{vm.dtFormat}}" is-open="vm.anoiOpen" ng-click="vm.openAnoi($event)"
+                                                   ng-mousedown="vm.openAnoi($event)" ng-keydown="vm.openAnoi($event)" show-weeks="false" show-button-bar="true"
+                                                   max-date="vm.maxDate" min-date="vm.Contact.DOB" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group control-spacing">
+                                            <label>{{ 'EXPIRED' | translate }}</label>
+                                            <input ng-disabled="vm.isView" type="text" placeholder="Enter Expired date" class="form-control" ng-model="vm.Contact.DOD"
+                                                   restrict-input datepicker-popup="{{vm.dtFormat}}" is-open="vm.expOpen" ng-click="vm.openExp($event)"
+                                                   ng-mousedown="vm.openExp($event)" ng-keydown="vm.openExp($event)" show-weeks="false" show-button-bar="true"
+                                                   max-date="vm.maxDate" min-date="vm.Contact.DOB" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">{{ 'UPLDIMG' | translate }}:</div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group control-spacing">
+                                            <input type="file" file-model="vm.myFile" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group control-spacing">
+                                            <img ng-src="/memberImages/{{(vm.Contact.HasImage) ? vm.Contact.CustomerId + '/' + vm.Contact.ContactId : 'no'}}_thumb.png" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group control-spacing text-center">
+                                        <div ng-hide="true" id="oldgrpId" ng-model="vm.Contact.GroupId"></div>
+                                        <div ng-hide="true" id="ContactId" ng-model="vm.Contact.ContactId"></div>
+                                        <button ng-disabled="vm.isView" class="btn btn-rounded btn-primary" ng-click='vm.listClick()'>Cancel</button>
+                                        <button ng-disabled="vm.isView" ng-hide="!vm.isUpdate" ng-show="vm.isUpdate" class="btn btn-rounded btn-primary" ng-click='vm.update(myForm)'>Update</button>
+                                        <button ng-disabled="vm.isView" ng-hide="vm.isUpdate" ng-show="!vm.isUpdate" class="btn btn-rounded btn-primary" ng-click='vm.save(myForm, true)'>Save and add another</button>
+                                        <button ng-disabled="vm.isView" ng-hide="vm.isUpdate" ng-show="!vm.isUpdate" class="btn btn-rounded btn-primary" ng-click='vm.save(myForm, false)'>Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

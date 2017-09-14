@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRD", "Pugal\MRD.csproj", "{FD212ACB-6B05-494A-A921-84B953E7BFBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{34FFDFD2-C9A6-4F00-B829-9003DBABE8E9}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD212ACB-6B05-494A-A921-84B953E7BFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD212ACB-6B05-494A-A921-84B953E7BFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD212ACB-6B05-494A-A921-84B953E7BFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD212ACB-6B05-494A-A921-84B953E7BFBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

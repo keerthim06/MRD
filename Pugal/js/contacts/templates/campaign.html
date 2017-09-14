@@ -1,0 +1,62 @@
+﻿<div ng-controller="campaignCtrl as vm" ng-init="vm.init();">
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Mail Campaign</h5>
+            </div>
+        </div>
+        <form name="myForm">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group control-spacing" ng-class="{'has-error': myForm.cname.$invalid && !myForm.cname.$pristine}">
+                                        <label>Email<span class="require"> *</span></label>
+                                        <input type="text" name="cname" ng-disabled="vm.isView" class="form-control"
+                                               ng-model="vm.Mail.Emails" placeholder="Enter emails (comma seperated)" maxlength="400">
+                                        <i class="require" ng-show="myForm.cname.$invalid && !myForm.cname.$pristine">Please enter valid email</i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group control-spacing">
+                                        <label>Subject</label>
+                                        <input type="text" ng-disabled="vm.isView" ng-model="vm.Mail.Subject" class="form-control" placeholder="Enter subject" maxlength="100" ng-pattern="/[a-zA-Z]+/">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group control-spacing">
+                                        <label>Group Name</label>
+                                        <input type="text" autocomplete="off" ng-disabled="vm.isView" ng-model="vm.MailGroup" class="form-control" placeholder="Enter group name" typeahead="group as group.GroupName for group in vm.getGroups($viewValue) | filter:$viewValue" maxlength="150" ng-pattern="/[a-zA-Z]+/">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group control-spacing">
+                                        <textarea data-ck-editor ng-model="vm.Mail.Campaign" id="editor1" name="editor1" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group control-spacing text-center">
+                                        <button ng-disabled="vm.isView" ng-hide="vm.isUpdate" ng-show="!vm.isUpdate" class="btn btn-rounded btn-primary" ng-click='vm.send(myForm)'>Send Mail</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

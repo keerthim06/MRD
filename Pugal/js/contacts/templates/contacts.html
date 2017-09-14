@@ -1,0 +1,145 @@
+﻿<div ng-controller="contactCtrl as vm" ng-init="vm.activate();">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <form name="myForm">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="ibox-content">
+                            <div class="row">
+                               <table border="0" width="100%">
+                                   <tr><td width="5%">&nbsp;</td> <td><h2>{{vm.product.id}} Marketing Requirements</h2></td></tr>
+                                   <tr><td colspan="2">&nbsp;</td></tr>
+                                   <tr>
+                                       <td width="5%">&nbsp;</td>
+                                       <td>
+                                           <table width="100%" border="0">
+                                               <tr>
+                                                   <td width="45%">
+                                                       <div style="float:left">Product Diff</div><br />
+                                                       <div><textarea style="width:85%" cols="4">{{vm.product.description}}</textarea></div>
+                                                   </td>
+                                                   <td width="5%">&nbsp;</td>
+                                                   <td>
+                                                       <div>{{vm.product.version}}</div><br />
+                                                       <div>Last Modified {{vm.product.modifydate}} By {{vm.product.modifyby}}</div><br />
+                                                       <div><button>View version history</button> &nbsp;&nbsp;&nbsp;&nbsp;<button>Start Change Order</button></div>
+                                                   </td>
+                                               </tr>
+                                           </table>
+                                       </td>
+                                   </tr>
+                                   <tr><td colspan="2">&nbsp;</td></tr>
+                                   <tr>
+                                       <td width="5%">&nbsp;</td>
+                                       <td>
+                                           <table width="100%" border="0">
+                                               <tr>
+                                                   <td width="45%"><h3>Target Customer</h3></td>
+                                                   <td width="5%">&nbsp;</td>
+                                                   <td width="50%" valign="top"><h3>Key Design Attributes</h3></td>
+                                               </tr>
+                                               <tr><td colspan="3">&nbsp;</td> </tr>
+                                               <tr>
+                                                   <td width="45%" valign="top">
+                                                       <table width="100%" border="0">
+                                                           <tr>
+                                                               <th>&nbsp;</th>
+                                                               <th>Name</th>
+                                                               <th>comments</th>
+                                                           </tr>
+                                                           <tr style="height:45px" ng-repeat="cus in vm.product.tragetcustomer">
+                                                               <td><a ng-click="vm.cusRemove($index)" href="#">X</a></td>
+                                                               <td>
+                                                                   <select name="custname" ng-model="cus.name">
+                                                                       <option ng-repeat="customer in vm.customers" >{{customer}}</option>
+                                                                   </select>
+                                                               </td>
+                                                               <td><input type="text" ng-model="cus.comment" /> </td>
+                                                           </tr>
+                                                           <tr>
+                                                               <td colspan="3"><button ng-click="vm.cusAdd()">Add</button> </td>
+                                                           </tr>
+                                                       </table>
+                                                   </td>
+                                                   <td width="5%">&nbsp;</td>
+                                                   <td width="50%" valign="top">
+                                                       <table width="100%" border="0">
+                                                           <tr>
+                                                               <th>&nbsp;</th>
+                                                               <th>Name</th>
+                                                               <th>Description</th>
+                                                               <th>Risk</th>
+                                                           </tr>
+                                                           <tr style="height:45px" ng-repeat="attr in vm.product.keyattribute">
+                                                               <td><a ng-click="vm.attrRemove($index)" href="#">X</a></td>
+                                                               <td>
+                                                                   <select name="attr" ng-model="attr.name">
+                                                                       <option ng-repeat="attribute in vm.attributes">{{attribute}}</option>
+                                                                   </select>
+                                                               </td>
+                                                               <td><input type="text" ng-model="attr.description" /> </td>
+                                                               <td>
+                                                                   <select name="prio" ng-model="attr.risk">
+                                                                       <option ng-repeat="prio in vm.priority">{{prio}}</option>
+                                                                   </select>
+                                                               </td>
+                                                           </tr>
+                                                           <tr>
+                                                               <td colspan="3"><button ng-click="vm.attrAdd()">Add</button> </td>
+                                                           </tr>
+                                                       </table>
+                                                   </td>
+                                               </tr>
+                                           </table>
+                                       </td>
+                                   </tr>
+                                   <tr><td colspan="3">&nbsp;</td> </tr>
+                                   <tr>
+                                       <td width="5%">&nbsp;</td>
+                                       <td>
+                                           <table width="100%" border="0">
+                                               <tr>
+                                                   <td width="45%"><h3>Target Project Milstone Dates</h3></td>
+                                                   <td width="5%">&nbsp;</td>
+                                                   <td width="50%" valign="top"><h3>Supplemental Documents</h3></td>
+                                               </tr>
+                                               <tr><td colspan="3">&nbsp;</td> </tr>
+                                               <tr>
+                                                   <td width="45%" valign="top">
+                                                       <table width="100%" border="0">
+                                                           <tr>
+                                                               <th>&nbsp;</th>
+                                                               <th>Milstone</th>
+                                                               <th>Date</th>
+                                                               <th>Description</th>
+                                                           </tr>
+                                                           <tr style="height:45px" ng-repeat="ml in vm.product.milstones">
+                                                               <td><a ng-click="vm.mlRemove($index)" href="#">X</a></td>
+                                                               <td><input type="text" ng-model="ml.name" /></td>
+                                                               <td><input type="text" ng-model="ml.date" /> </td>
+                                                               <td><input type="text" ng-model="ml.description" /> </td>
+                                                           </tr>
+                                                           <tr>
+                                                               <td colspan="3"><button ng-click="vm.mlAdd()">Add</button> </td>
+                                                           </tr>
+                                                       </table>
+                                                   </td>
+                                                   <td width="5%">&nbsp;</td>
+                                                   <td width="50%" valign="top">
+                                                       <table width="100%" border="0">
+                                                           
+                                                       </table>
+                                                   </td>
+                                               </tr>
+                                           </table>
+                                       </td>
+                                   </tr>
+                                   <tr><td colspan="2">&nbsp;</td></tr>
+                               </table>
+                            </div>
+                            
+                        </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
