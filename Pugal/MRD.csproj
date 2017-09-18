@@ -315,7 +315,7 @@
     <Content Include="js\contacts\templates\create.contact.html" />
     <Content Include="js\contacts\templates\create.group.html" />
     <Content Include="js\contacts\templates\family.tree.html" />
-    <Content Include="js\contacts\templates\groups.html" />
+    <Content Include="js\contacts\templates\table.html" />
     <Content Include="js\plugins\ExportToExcel.js" />
     <Content Include="js\plugins\ngDialog\css\myth\ngDialog-theme-default.css" />
     <Content Include="js\plugins\ngDialog\css\myth\ngDialog-theme-plain.css" />

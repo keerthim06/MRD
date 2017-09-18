@@ -18,6 +18,7 @@
         vm.attrRemove = attrRemove;
         vm.mlAdd = mlAdd;
         vm.mlRemove = mlRemove;
+        vm.editTable = editTable;
 
         vm.product = {
             id : "QM12345",
@@ -35,7 +36,59 @@
                 { name: "ES  Sample", description: "111mm", date: "08/23/2017" },
                 { name: "CS Sample", description: "1aadsasm", date: "08/40/2017" },
                 { name: "HP Mass Production", description: "Notes", date: "12/12/2018" }
-            ]
+            ],
+            documents: [
+                { name: "ES  Sample", author: "William", date: "08/23/2017" },
+                { name: "CS Sample", author: "Rock", date: "08/40/2017" },
+                { name: "HP Mass Production", author: "Huston", date: "12/12/2018" }
+            ],
+            roi: {
+                title: "ROI Marketing Inputs", 
+                isEditable: false,
+                showEdit: true,
+             description : [],
+             table:   [
+                    { col1: "", col2: "FY18 Q1", col3: "FY18 Q2", col4: "FY18 Q3", col5: "FY18 Q4", col6: "FY19 Q1", col7: "FY19 Q2", col8: "FY19 Q3" },
+                    { col1: "Cost ($)", col2: "$100", col3: "$100", col4: "$0.98", col5: "$0.96", col6: "$0.97", col7: "$0.96", col8: "$0.99" },
+                    { col1: "ABP ($)", col2: "$195", col3: "$196", col4: "$197", col5: "$199", col6: "$194", col7: "$196", col8: "195" },
+                    { col1: "Volume", col2: "240k", col3: "240k", col4: "2M", col5: "3M", col6: "4M", col7: "3M", col8: "6M" },
+                    { col1: "Revenue($)", col2: "24k", col3: "22k", col4: "2.7M", col5: "3.8M", col6: "4.1M", col7: "3.6M", col8: "6.1M" },
+                    { col1: "Volume(%)", col2: "47%", col3: "45%", col4: "50%", col5: "50%", col6: "34%", col7: "44%", col8: "43%" }
+                ]
+            },
+            dfc: {
+                title: "Design For Cost (DFC) output",
+                isEditable: false,
+                showEdit: false,
+                description: [
+                    { name: "Name", owner: "Owner", modifydate: "Last Modify Date", qtr: "Launch Qtr" },
+                    { name: "PD", owner: "John", modifydate: "08/12/206", qtr: "FY17 Q2" },
+                ],
+                table: [
+                    { col1: "", col2: "FY18 Q1", col3: "FY18 Q2", col4: "FY18 Q3", col5: "FY18 Q4", col6: "FY19 Q1", col7: "FY19 Q2", col8: "FY19 Q3" },
+                    { col1: "Cost ($)", col2: "$100", col3: "$100", col4: "$0.98", col5: "$0.96", col6: "$0.97", col7: "$0.96", col8: "$0.99" },
+                    { col1: "ABP ($)", col2: "$195", col3: "$196", col4: "$197", col5: "$199", col6: "$194", col7: "$196", col8: "195" },
+                    { col1: "Volume", col2: "240k", col3: "240k", col4: "2M", col5: "3M", col6: "4M", col7: "3M", col8: "6M" },
+                    
+                ]
+            },
+            dms: {
+                title: "Demand Management System (DMS) output",
+                isEditable: false,
+                showEdit: false,
+                description: [
+                    { name: "Name"},
+                    { name: "PD" },
+                ],
+                table: [
+                    { col1: "", col2: "FY18 Q1", col3: "FY18 Q2", col4: "FY18 Q3", col5: "FY18 Q4", col6: "FY19 Q1", col7: "FY19 Q2", col8: "FY19 Q3" },
+                    { col1: "Cost ($)", col2: "$100", col3: "$100", col4: "$0.98", col5: "$0.96", col6: "$0.97", col7: "$0.96", col8: "$0.99" },
+                    { col1: "ABP ($)", col2: "$195", col3: "$196", col4: "$197", col5: "$199", col6: "$194", col7: "$196", col8: "195" },
+                    { col1: "Volume", col2: "240k", col3: "240k", col4: "2M", col5: "3M", col6: "4M", col7: "3M", col8: "6M" },
+                    { col1: "Revenue($)", col2: "24k", col3: "22k", col4: "2.7M", col5: "3.8M", col6: "4.1M", col7: "3.6M", col8: "6.1M" },
+                    { col1: "Volume(%)", col2: "47%", col3: "45%", col4: "50%", col5: "50%", col6: "34%", col7: "44%", col8: "43%" }
+                ]
+            }
         };
 
         vm.customers = ["Smasung", "LG", "Apple", "Sony"];
@@ -65,6 +118,10 @@
         }
         function mlRemove(index) {
             vm.product.milstones.splice(index, 1);
+        }
+
+        function editTable() {
+            alert('asdasd')
         }
     }
 })();

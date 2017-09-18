@@ -1,0 +1,52 @@
+﻿<table border="0" width="100%">
+    <tr><td><h3>{{tabledata.title}} &nbsp;&nbsp;&nbsp; <button ng-show="tabledata.showEdit" ng-click="editTable()">Edit</button></h3> </td></tr>
+   
+    <tr>
+        <td width="75%">
+            <table border="0" width="80%">
+                <tr ng-repeat="des in tabledata.description">
+                    <td>{{des.name}}</td>
+                    <td>{{des.owner}}</td>
+                    <td>{{des.modifydate}}</td>
+                    <td>{{des.qtr}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    
+    <tr ng-show="!tabledata.isEditable">
+        <td width="100%" >
+            <table  width="100%" border="1" style="color:black; border-bottom-width:thin;border-left-width:thin;border-right-width:thin;border-top-width:thin">
+                <tr ng-repeat="roi in tabledata.table">
+                    <td>{{roi.col1}}</td>
+                    <td>{{roi.col2}}</td>
+                    <td>{{roi.col3}}</td>
+                    <td>{{roi.col4}}</td>
+                    <td>{{roi.col5}}</td>
+                    <td>{{roi.col6}}</td>
+                    <td>{{roi.col7}}</td>
+                    <td>{{roi.col8}}</td>
+                </tr>
+            </table>
+            
+        </td>
+    </tr>
+    <tr ng-show="tabledata.isEditable" >
+        <td width="100%">
+            <table width="80%" border="1" style="color:black; border-bottom-width:thin;border-left-width:thin;border-right-width:thin;border-top-width:thin">
+                <tr ng-repeat="roi in tabledata.table">
+                    <td><input size="10" type="text" ng-model="roi.col1" /></td>
+                    <td><input size="10" type="text" ng-model="roi.col2" /></td>
+                    <td><input type="text" size="10" ng-model="roi.col3" /></td>
+                    <td><input type="text" size="10" ng-model="roi.col4" /></td>
+                    <td><input type="text" size="10" ng-model="roi.col5" /></td>
+                    <td><input type="text" size="10" ng-model="roi.col6" /></td>
+                    <td><input type="text" size="10" ng-model="roi.col7" /></td>
+                    <td><input type="text" size="10" ng-model="roi.col8" /></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+

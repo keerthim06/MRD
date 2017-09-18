@@ -1111,6 +1111,28 @@ function dlEscapeKey() {
     };
 };
 
+//customtable.$inject = ['$timeout', '$filter', '$q', '$rootScope'];
+function customtable() {
+    return {
+        restrict: 'A',
+        scope: {
+            tabledata: '=',
+            editTable: '&'
+        },
+        templateUrl: '../js/contacts/templates/table.html',
+        link: function (scope, element) {
+
+
+        },
+        controller: function ($scope, $element) {
+            $scope.editTable = function (item) {
+                $scope.tabledata.isEditable = true;
+            }
+
+        }
+    };
+};
+
 /**
  *
  * Pass all functions into module
@@ -1120,6 +1142,7 @@ angular
     .directive('pageTitle', pageTitle)
     .directive('sideNavigation', sideNavigation)
     .directive('iboxTools', iboxTools)
+    .directive('customtable', customtable)
     .directive('minimalizaSidebar', minimalizaSidebar)
     .directive('vectorMap', vectorMap)
     .directive('sparkline', sparkline)

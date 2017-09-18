@@ -126,11 +126,38 @@
                                                    <td width="5%">&nbsp;</td>
                                                    <td width="50%" valign="top">
                                                        <table width="100%" border="0">
-                                                           
+                                                           <tr ng-repeat="doc in vm.product.documents">
+                                                               <td>&nbsp;</td>
+                                                               <td><a data-ng-bind="doc.name"></a> &nbsp;&nbsp;&nbsp;<div style="float:left" data-ng-bind="doc.author"></div> &nbsp;&nbsp;&nbsp;({{doc.date}})</td>
+                                                           </tr>
+                                                           <tr>
+                                                               <td colspan="2"><button >Attach</button> </td>
+                                                           </tr>
                                                        </table>
                                                    </td>
                                                </tr>
                                            </table>
+                                       </td>
+                                   </tr>
+                                   <tr><td colspan="2">&nbsp;</td></tr>
+                                   <tr>
+                                       <td width="5%">&nbsp;</td>
+                                       <td colspan="2" width="100%">
+                                           <div customtable tabledata="vm.product.roi" ></div>
+                                       </td>
+                                   </tr>
+                                   <tr><td colspan="2">&nbsp;</td></tr>
+                                   <tr>
+                                       <td width="5%">&nbsp;</td>
+                                       <td colspan="2" width="100%">
+                                           <div customtable tabledata="vm.product.dfc"></div>
+                                       </td>
+                                   </tr>
+                                   <tr><td colspan="2">&nbsp;</td></tr>
+                                   <tr>
+                                       <td width="5%">&nbsp;</td>
+                                       <td colspan="2" width="100%">
+                                           <div customtable tabledata="vm.product.dms"></div>
                                        </td>
                                    </tr>
                                    <tr><td colspan="2">&nbsp;</td></tr>
