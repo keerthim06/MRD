@@ -1,4 +1,4 @@
-﻿<table border="0" width="100%">
+﻿<table border="0" width="100%" ng-init="initHot()">
     <tr><td><h3>{{tabledata.title}} &nbsp;&nbsp;&nbsp; <button ng-show="tabledata.showEdit" ng-click="editTable()">Edit</button></h3> </td></tr>
    
     <tr>
@@ -14,7 +14,13 @@
         </td>
     </tr>
     
-    <tr ng-show="!tabledata.isEditable">
+    <tr>
+        <td width="100%">
+            <div id="hot1" class="hot1"></div>
+        </td>
+    </tr>
+
+    <!--<tr ng-show="!tabledata.isEditable">
         <td width="100%" >
             <table  width="100%" border="1" style="color:black; border-bottom-width:thin;border-left-width:thin;border-right-width:thin;border-top-width:thin">
                 <tr ng-repeat="roi in tabledata.table">
@@ -46,7 +52,7 @@
                 </tr>
             </table>
         </td>
-    </tr>
+    </tr>-->
 </table>
 
 

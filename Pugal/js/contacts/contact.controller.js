@@ -95,7 +95,73 @@
         vm.attributes = ["Size L x W (mm)", "Cost", "TBD", "TBD123"];
         vm.priority = ["High", "Medium", "Low"];
 
+
+        vm.hotElement = document.querySelector('#hot');
+        //vm.hotElementContainer = hotElement.parentNode;
+        vm.hotSettings = {
+            data: vm.product.roi.table,
+            columns: [
+                {
+                    data: 'col1',
+                    type: 'text'
+                },
+                {
+                    data: 'col2',
+                    type: 'text'
+                },
+                {
+                    data: 'col3',
+                    type: 'text'
+                },
+                {
+                    data: 'col4',
+                    type: 'text'
+                },
+                {
+                    data: 'col5',
+                    type: 'text'
+                },
+                {
+                    data: 'col6',
+                    type: 'text'
+                },
+                {
+                    data: 'col7',
+                    type: 'text'
+                },
+                {
+                    data: 'col8',
+                    type: 'text'
+                }
+            ],
+            stretchH: 'all',
+            width: 900,
+            autoWrapRow: true,
+            maxRows: 22,
+            rowHeaders: true,
+            colHeaders: [
+                '',
+                'FY18 Q1',
+                'FY18 Q2',
+                'FY18 Q3',
+                'FY18 Q4',
+                'FY19 Q1',
+                'FY19 Q2',
+                'FY19 Q3'
+            ],
+            manualRowResize: true,
+            manualColumnResize: true,
+            manualRowMove: true,
+            manualColumnMove: true,
+            contextMenu: true,
+            filters: true,
+            dropdownMenu: true
+        };
+
+        
+
         function activate() {
+            
         }
 
         function cusAdd() {

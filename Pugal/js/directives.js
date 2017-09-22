@@ -1111,18 +1111,20 @@ function dlEscapeKey() {
     };
 };
 
-//customtable.$inject = ['$timeout', '$filter', '$q', '$rootScope'];
 function customtable() {
     return {
         restrict: 'A',
         scope: {
             tabledata: '=',
+            settings : '=',
             editTable: '&'
         },
         templateUrl: '../js/contacts/templates/table.html',
         link: function (scope, element) {
-
-
+            var hotElement = element.find('#hot1');
+            var hotSetting = scope.settings;
+            hotSetting.data = scope.tabledata.table;
+            var hot = new Handsontable(hotElement[0], hotSetting);
         },
         controller: function ($scope, $element) {
             $scope.editTable = function (item) {

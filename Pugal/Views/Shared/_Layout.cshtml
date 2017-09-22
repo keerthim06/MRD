@@ -9,6 +9,9 @@
     <base href="/">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" type="text/css" href="http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.css">
+    <link rel="stylesheet" type="text/css" href="http://handsontable.com/static/css/main.css">
 </head>
 <body ng-controller="MainCtrl as main">
     
@@ -42,6 +45,7 @@
     <script src="~/js/controllers.js"></script>
     <script src="~/js/directives.js"></script>
     <script src="~/js/repository.js"></script>
+    <script src="http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.js"></script>
     
     @RenderSection("scripts", required: false)
 </body>
