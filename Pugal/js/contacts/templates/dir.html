@@ -1,0 +1,19 @@
+﻿<table width="100%" border="0">
+    <tr>
+        <th>&nbsp;</th>
+        <th>Name</th>
+        <th>comments</th>
+    </tr>
+    <tr style="height:45px" ng-repeat="cus in tabledata track by $index">
+        <td><a ng-click="remove($index)" href="#">X</a></td>
+        <td>
+            <select name="custname" ng-model="cus.name">
+                <option ng-repeat="customer in dropdowndata">{{customer}}</option>
+            </select>
+        </td>
+        <td><input type="text" ng-model="cus.comment" /> </td>
+    </tr>
+    <tr>
+        <td colspan="3"><button ng-click="add()">Add</button>  </td>
+    </tr>
+</table>

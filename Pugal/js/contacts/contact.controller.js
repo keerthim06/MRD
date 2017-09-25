@@ -26,7 +26,7 @@
             version: "Draft sdfsdf 1.0",
             modifydate: " 08/25/2017",
             modifyby: "Mark King",
-            tragetcustomer: [{ name: "Smasung", comment: "hello world" }, { name: "LG", comment: "" }, { name: "Apple", comment: "" }],
+            tragetcustomer: [{  name: "Smasung", comment: "hello world" }, { name: "LG", comment: "" }, { name: "Apple", comment: "" }],
             keyattribute: [
                 { name: "Size L x W (mm)", description: "111mm", risk: "Medium" },
                 { name: "Cost", description: "< $120", risk: "High" },
@@ -94,7 +94,7 @@
         vm.customers = ["Smasung", "LG", "Apple", "Sony"];
         vm.attributes = ["Size L x W (mm)", "Cost", "TBD", "TBD123"];
         vm.priority = ["High", "Medium", "Low"];
-
+        vm.data = { name: "Smasung", comment: "" };
 
         vm.hotElement = document.querySelector('#hot');
         //vm.hotElementContainer = hotElement.parentNode;

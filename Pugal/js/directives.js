@@ -1135,6 +1135,31 @@ function customtable() {
     };
 };
 
+function customtable1() {
+    return {
+        restrict: 'A',
+        scope: {
+            tabledata: '=',
+            dropdowndata: '=',
+            adddata : '=',
+            remove: '&',
+            add: '&'
+        },
+        templateUrl: '../js/contacts/templates/dir.html',
+        link: function (scope, element) {
+            
+        },
+        controller: function ($scope, $element) {
+            $scope.remove = function (index) {
+                $scope.tabledata.splice(index, 1);
+            }
+            $scope.add = function (index) {
+                $scope.tabledata.push($scope.adddata);
+            }
+        }
+    };
+};
+
 /**
  *
  * Pass all functions into module
@@ -1145,6 +1170,7 @@ angular
     .directive('sideNavigation', sideNavigation)
     .directive('iboxTools', iboxTools)
     .directive('customtable', customtable)
+    .directive('customtable1', customtable1)
     .directive('minimalizaSidebar', minimalizaSidebar)
     .directive('vectorMap', vectorMap)
     .directive('sparkline', sparkline)

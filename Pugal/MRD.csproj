@@ -314,6 +314,7 @@
     <Content Include="js\contacts\templates\contacts.html" />
     <Content Include="js\contacts\templates\create.contact.html" />
     <Content Include="js\contacts\templates\create.group.html" />
+    <Content Include="js\contacts\templates\dir.html" />
     <Content Include="js\contacts\templates\family.tree.html" />
     <Content Include="js\contacts\templates\table.html" />
     <Content Include="js\plugins\ExportToExcel.js" />
