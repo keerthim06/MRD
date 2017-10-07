@@ -1135,6 +1135,17 @@ function customtable() {
                             }
                         });
                     }
+
+                    if (scope.settings.validaterow && scope.settings.validaterow.length) {
+                        angular.forEach(scope.settings.validaterow, function (value, key) {
+                            if (value === row) {
+                                if (col !== 0) {
+                                    cellProperties.type = 'numeric';
+                                    cellProperties.allowInvalid = false;
+                                }
+                            }
+                        });
+                    }
                     return cellProperties;
                 }
             })
