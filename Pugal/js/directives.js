@@ -1125,6 +1125,19 @@ function customtable() {
             var hotSetting = scope.settings;
             hotSetting.data = scope.tabledata.table;
             var hot = new Handsontable(hotElement[0], hotSetting);
+            hot.updateSettings({
+                cells: function (row, col, prop) {
+                    var cellProperties = {};
+                    if (scope.settings.readonlyrow && scope.settings.readonlyrow.length) {
+                        angular.forEach(scope.settings.readonlyrow, function (value, key) {
+                            if (value === row) {
+                                cellProperties.readOnly = true;
+                            }
+                        });
+                    }
+                    return cellProperties;
+                }
+            })
         },
         controller: function ($scope, $element) {
             $scope.editTable = function (item) {

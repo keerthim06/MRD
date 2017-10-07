@@ -48,12 +48,11 @@
                 showEdit: true,
              description : [],
              table:   [
-                    { col1: "", col2: "FY18 Q1", col3: "FY18 Q2", col4: "FY18 Q3", col5: "FY18 Q4", col6: "FY19 Q1", col7: "FY19 Q2", col8: "FY19 Q3" },
-                    { col1: "Cost ($)", col2: "$100", col3: "$100", col4: "$0.98", col5: "$0.96", col6: "$0.97", col7: "$0.96", col8: "$0.99" },
-                    { col1: "ABP ($)", col2: "$195", col3: "$196", col4: "$197", col5: "$199", col6: "$194", col7: "$196", col8: "195" },
-                    { col1: "Volume", col2: "240k", col3: "240k", col4: "2M", col5: "3M", col6: "4M", col7: "3M", col8: "6M" },
-                    { col1: "Revenue($)", col2: "24k", col3: "22k", col4: "2.7M", col5: "3.8M", col6: "4.1M", col7: "3.6M", col8: "6.1M" },
-                    { col1: "Volume(%)", col2: "47%", col3: "45%", col4: "50%", col5: "50%", col6: "34%", col7: "44%", col8: "43%" }
+                    { col1: "Cost ($)", col2: "100", col3: "100", col4: "98", col5: "96", col6: "97", col7: "96", col8: "99" },
+                    { col1: "ABP ($)", col2: "195", col3: "196", col4: "197", col5: "199", col6: "194", col7: "196", col8: "195" },
+                    { col1: "Volume", col2: "240", col3: "240", col4: "28", col5: "30", col6: "41", col7: "32", col8: "61" },
+                    { col1: "Revenue($)", col2: "=B2*B3", col3: "=C2*C3", col4: "=D2*D3", col5: "=E2*E3", col6: "=F2*F3", col7: "=G2*G3", col8: "=H2*H3" },
+                    { col1: "Volume(%)", col2: "=( B4-(B2*B1)/B4)", col3: "=(C4-(C2*C1)/C4)", col4: "=(D4-(D2*D1)/D4)", col5: "=(E4-(E2*E1)/E4)", col6: "=(F4-(F2*F1)/F4)", col7: "=(G4-(G2*G1)/G4)", col8: "=(H4-(H2*H1)/H4)" }
                 ]
             },
             dfc: {
@@ -65,10 +64,9 @@
                     { name: "PD", owner: "John", modifydate: "08/12/206", qtr: "FY17 Q2" },
                 ],
                 table: [
-                    { col1: "", col2: "FY18 Q1", col3: "FY18 Q2", col4: "FY18 Q3", col5: "FY18 Q4", col6: "FY19 Q1", col7: "FY19 Q2", col8: "FY19 Q3" },
-                    { col1: "Cost ($)", col2: "$100", col3: "$100", col4: "$0.98", col5: "$0.96", col6: "$0.97", col7: "$0.96", col8: "$0.99" },
-                    { col1: "ABP ($)", col2: "$195", col3: "$196", col4: "$197", col5: "$199", col6: "$194", col7: "$196", col8: "195" },
-                    { col1: "Volume", col2: "240k", col3: "240k", col4: "2M", col5: "3M", col6: "4M", col7: "3M", col8: "6M" },
+                    { col1: "Cost ($)", col2: "100", col3: "100", col4: "$0.98", col5: "$0.96", col6: "$0.97", col7: "$0.96", col8: "$0.99" },
+                    { col1: "ABP ($)", col2: "195", col3: "196", col4: "$197", col5: "$199", col6: "$194", col7: "$196", col8: "195" },
+                    { col1: "Volume", col2: "240", col3: "240", col4: "2M", col5: "3M", col6: "4M", col7: "3M", col8: "6M" },
                     
                 ]
             },
@@ -81,12 +79,11 @@
                     { name: "PD" },
                 ],
                 table: [
-                    { col1: "", col2: "FY18 Q1", col3: "FY18 Q2", col4: "FY18 Q3", col5: "FY18 Q4", col6: "FY19 Q1", col7: "FY19 Q2", col8: "FY19 Q3" },
-                    { col1: "Cost ($)", col2: "$100", col3: "$100", col4: "$0.98", col5: "$0.96", col6: "$0.97", col7: "$0.96", col8: "$0.99" },
-                    { col1: "ABP ($)", col2: "$195", col3: "$196", col4: "$197", col5: "$199", col6: "$194", col7: "$196", col8: "195" },
-                    { col1: "Volume", col2: "240k", col3: "240k", col4: "2M", col5: "3M", col6: "4M", col7: "3M", col8: "6M" },
-                    { col1: "Revenue($)", col2: "24k", col3: "22k", col4: "2.7M", col5: "3.8M", col6: "4.1M", col7: "3.6M", col8: "6.1M" },
-                    { col1: "Volume(%)", col2: "47%", col3: "45%", col4: "50%", col5: "50%", col6: "34%", col7: "44%", col8: "43%" }
+                    { col1: "Cost ($)", col2: "100", col3: "100", col4: "$0.98", col5: "$0.96", col6: "$0.97", col7: "$0.96", col8: "$0.99" },
+                    { col1: "ABP ($)", col2: "195", col3: "196", col4: "$197", col5: "$199", col6: "$194", col7: "$196", col8: "195" },
+                    { col1: "Volume", col2: "240", col3: "240", col4: "2M", col5: "3M", col6: "4M", col7: "3M", col8: "6M" },
+                    { col1: "Revenue($)", col2: "24", col3: "22", col4: "2.7M", col5: "3.8M", col6: "4.1M", col7: "3.6M", col8: "6.1M" },
+                    { col1: "Volume(%)", col2: "47", col3: "45", col4: "50%", col5: "50%", col6: "34%", col7: "44%", col8: "43%" }
                 ]
             }
         };
@@ -100,18 +97,19 @@
         //vm.hotElementContainer = hotElement.parentNode;
         vm.hotSettings = {
             data: vm.product.roi.table,
+            readonlyrow : [3,4],
             columns: [
                 {
                     data: 'col1',
-                    type: 'text'
+                    type: 'text',
+                    readOnly: true
                 },
                 {
                     data: 'col2',
-                    type: 'text'
+
                 },
                 {
                     data: 'col3',
-                    type: 'text'
                 },
                 {
                     data: 'col4',
@@ -138,7 +136,12 @@
             width: 900,
             autoWrapRow: true,
             maxRows: 22,
-            rowHeaders: true,
+            rowHeaders: false,
+            formulas: true,
+            fillHandle: {
+                direction: 'horizontal',
+                autoInsertRow: false,
+            },
             colHeaders: [
                 '',
                 'FY18 Q1',
